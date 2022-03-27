@@ -11,7 +11,7 @@ body {
 }
 
 h1.header {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-top: 20px;
 }
 
@@ -42,4 +42,59 @@ h1.header {
 
 .btn .icon {
   margin-right: 11px;
+}
+
+.card {
+  padding: 15px;
+  border: 5px solid #22223B;
+  background-color: #C9ADA7;
+  color: #22223B;
+  width: 300px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px
+}
+
+.card .title {
+  font-size: 2rem;
+}
+
+.card .controls {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+
+.card .controls svg {
+  cursor: pointer;
+  transition: 50ms;
+}
+
+.card .btn {
+  background-color: #C52233;
+  color: #F2E9E4;
+}
+
+.card .read {
+  background-color: #61D095;
+  color: #22223B;
+}
+
+.card .btn:hover {
+  background-color: #8ACDEA;
+  color: #22223B;
+}
+
+.card .controls svg:hover {
+  transform: scale(1.1);
+}
+
+.card-container {
+  margin-top: 30px;
+  width: 70vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
