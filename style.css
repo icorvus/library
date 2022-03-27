@@ -1,0 +1,45 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F2E9E4;
+  gap: 10px;
+}
+
+h1.header {
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+
+.header {
+  font-size: 1.25rem;
+  color: #22223B;
+}
+
+.btn svg {
+  fill: #22223B;
+}
+
+.btn {
+  border: 3px solid #22223B;
+  background-color: white;
+  border-radius: 9px;
+  cursor: pointer;
+  padding: 3px 20px;
+  display: flex;
+  align-items: center;
+  transition: 50ms;
+}
+
+.btn:hover  {
+  transform: scale(1.05);
+  transition: 50ms;
+}
+
+.btn .icon {
+  margin-right: 11px;
+}
