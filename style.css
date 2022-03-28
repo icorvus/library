@@ -8,6 +8,7 @@ body {
   align-items: center;
   background-color: #F2E9E4;
   gap: 10px;
+  height: 100vh;
 }
 
 h1.header {
@@ -60,18 +61,19 @@ h1.header {
   font-size: 2rem;
 }
 
-.card .controls {
+.controls {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-right: 15px;
 }
 
-.card .controls svg {
+.controls svg {
   cursor: pointer;
   transition: 50ms;
 }
 
-.card .btn {
+.read-btn {
   background-color: #C52233;
   color: #F2E9E4;
 }
@@ -81,20 +83,75 @@ h1.header {
   color: #22223B;
 }
 
-.card .btn:hover {
+.read-btn:hover {
   background-color: #8ACDEA;
   color: #22223B;
 }
 
-.card .controls svg:hover {
+.controls svg:hover:active {
   transform: scale(1.1);
 }
 
 .card-container {
-  margin-top: 30px;
+  margin-top: 30px; /* 1%? */
   width: 70vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+}
+
+.modal-container {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(242, 233, 228, 0.9);
+}
+
+.modal {
+  margin: 10% auto;
+  border: 5px solid #22223B;
+  background-color: #C9ADA7;
+  color: #22223B;
+  border-radius: 30px;
+  padding: 15px;
+  width: fit-content;
+}
+
+.modal h2 {
+  font-size: 2rem;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.helper {
+  width: 24px;
+}
+
+.save-btn {
+  background-color: #F2E9E4;
+}
+
+.hide {
+  display: none;
+}
+
+.modal .controls {
+  margin-top: 10px;
+  width: 100%;
 }
