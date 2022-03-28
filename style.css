@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -114,8 +124,16 @@ h1.header {
   transition: opacity 0.15s ease-out;
 }
 
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .modal-container {
+    background-color: rgba(242, 233, 228, 0.5);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+
 .modal {
-  margin: 10% auto;
+  margin: 160px auto;
   border: 5px solid #22223B;
   background-color: #C9ADA7;
   color: #22223B;
@@ -123,6 +141,11 @@ h1.header {
   padding: 25px;
   width: fit-content;
   font-size: 1.25rem;
+}
+
+.modal input[type='text'],
+.modal input[type='number'] {
+  width: 250px;
 }
 
 .modal h2 {
