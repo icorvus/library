@@ -110,6 +110,8 @@ h1.header {
   height: 100%;
   overflow: auto;
   background-color: rgba(242, 233, 228, 0.9);
+  opacity: 1;
+  transition: opacity 0.15s ease-out;
 }
 
 .modal {
@@ -118,8 +120,9 @@ h1.header {
   background-color: #C9ADA7;
   color: #22223B;
   border-radius: 30px;
-  padding: 15px;
+  padding: 25px;
   width: fit-content;
+  font-size: 1.25rem;
 }
 
 .modal h2 {
@@ -129,29 +132,35 @@ h1.header {
 .modal form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   align-items: flex-start;
 }
 
 .form-row {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-}
-
-.helper {
-  width: 24px;
+  gap: 5px;
 }
 
 .save-btn {
   background-color: #F2E9E4;
+  font-size: 1.25rem;
 }
 
 .hide {
-  display: none;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  transition: opacity 0.15s ease-out, width 0s linear 0.15s, height 0s linear 0.15s;
 }
 
 .modal .controls {
   margin-top: 10px;
   width: 100%;
+}
+
+.modal .read-btn {
+  align-self: stretch;
+  justify-content: center;
+  font-size: 1.25rem;
 }

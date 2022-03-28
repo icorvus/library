@@ -11,7 +11,7 @@
 </head>
 <body>
   <h1 class="header">Library</h1>
-  <button class="header btn">
+  <button id="add-btn" class="header btn">
     <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/>
       <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
     Add a book
@@ -40,8 +40,8 @@
       </div>
     </div>
   </div>
-  <div class="modal-container">
-    <div class="modal">
+  <div id="modal-container" class="modal-container hide">
+    <div id="modal" class="modal">
       <form>
         <h2>Add a book</h2>
         <div class="form-row">
@@ -58,7 +58,9 @@
         </div>
         <button type="button" class="btn read-btn">Read</button>
         <div class="controls">
-          <span class="helper"></span>
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+          </svg>
           <button id="save-btn" class="btn save-btn" type="button">Save</button>
           <svg class="bin" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
