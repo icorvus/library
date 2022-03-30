@@ -18,7 +18,7 @@
   </button>
   <div class="card-container">
     <div class="card">
-      <div class="title">The Hobbit</div>
+      <h2 class="title">The Hobbit</h2>
       <div class="author">by Tolkien</div>
       <div class="pages">432 pages</div>
       <div class="controls">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="card">
-      <div class="title">Hamlet</div>
+      <h2 class="title">Hamlet</h2>
       <div class="author">by William Shakespeare</div>
       <div class="pages">102 pages</div>
       <div class="controls">
@@ -56,15 +56,15 @@
           <label for="pages">Number of pages</label>
           <input type="number" id="pages" name="pages" min="1" max="99999" required>
         </div>
-        <button type="button" class="btn read-btn">Read</button>
+        <button id="modal-read" type="button" class="btn read-btn">Read</button>
         <div class="controls">
-          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <span id="close-modal-btn" title="Return to Library"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-          </svg>
+          </svg></span>
           <button id="save-btn" class="btn save-btn" type="button">Save</button>
-          <svg class="bin" style="width:24px;height:24px" viewBox="0 0 24 24">
+          <span id="clear-form-btn" title="Clear your book"><svg class="bin" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-          </svg>
+          </svg></span>
         </div>
       </form>
     </div>
