@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
 
 html {
   font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Noto serif', 'Times New Roman', Times, serif
 }
 
 h1, h2 {
   margin: 0;
   padding: 0;
+  font-weight: bold;
 }
 
 body {
@@ -88,13 +91,8 @@ h1.header {
   color: #F2E9E4;
 }
 
-.card .read {
+.read {
   background-color: #61D095;
-  color: #22223B;
-}
-
-.read-btn:hover {
-  background-color: #8ACDEA;
   color: #22223B;
 }
 
