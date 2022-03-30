@@ -1,4 +1,4 @@
-"use strict;"
+"use strict";
 
 const modalContainer = document.getElementById('modal-container');
 const modal = document.getElementById('modal');
