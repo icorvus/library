@@ -72,7 +72,10 @@ Book.prototype.addToDOM = function(bookIndex) {
 
   const svgSpan = document.createElement('span');
   svgSpan.innerHTML = "<svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\"\><path fill=\"currentColor\" d=\"M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z\" /></svg>"
-  svgSpan.addEventListener('click', removeBook)
+  svgSpan.addEventListener('click', () => {
+    myLibrary.splice(bookIndex, 1);
+    reloadLibrary();
+  });
 
   controls.appendChild(readBtn);
   controls.appendChild(svgSpan);
@@ -94,7 +97,8 @@ function addBookToLibrary() {
 }
 
 function removeBook(event) {
-  myLibrary.splice(event.target.dataset.index, 1);
+  console.log(event.target);
+  myLibrary.splice(event.target.getAttribute('data-index'), 1);
   reloadLibrary();
 }
 
