@@ -10,9 +10,8 @@ function toggleModal() {
   modalContainer.classList.toggle('hide');
 }
 
-function toggleRead(event) {
+function toggleReadClass(event) {
   event.target.classList.toggle('read');
-  console.log('work work')
 }
 
 
@@ -22,7 +21,7 @@ closeModalBtn.addEventListener('click', toggleModal);
 modal.addEventListener('click', (event) => {
   event.stopPropagation();
 })
-modalReadBtn.addEventListener('click', toggleRead);
+modalReadBtn.addEventListener('click', toggleReadClass);
 
 
 
@@ -31,7 +30,7 @@ let myLibrary = [];
 const testBook1 = new Book("The Hobbit", "Tolkien", 432, "true");
 const testBook2 = new Book("Hamlet", "William Shakespeare", 102, "false");
 const testBook3 = new Book("The Little Prince", "Antoine de Saint-Exupery", 154, "true");
-myLibrary.push(testBook1, testBook2, testBook3);
+
 
 function Book(title, author, numberOfPages, read) {
   this.title = title;
@@ -40,11 +39,12 @@ function Book(title, author, numberOfPages, read) {
   this.read = read;
 }
 
-Book.prototype.addToDOM = function() {
+Book.prototype.addToDOM = function(bookIndex) {
   const cardContainer = document.querySelector('.card-container');
 
   const card = document.createElement('div');
   card.classList.add('card');
+  card.dataset.index = bookIndex;
 
   const title = document.createElement('h2');
   title.classList.add('title');
@@ -65,9 +65,14 @@ Book.prototype.addToDOM = function() {
   readBtn.classList.add('btn', 'read-btn');
   readBtn.textContent = 'Read';
   if (this.read) readBtn.classList.add('read');
+  readBtn.addEventListener('click', toggleReadClass);
+  readBtn.addEventListener('click', () => {
+    this.read = !this.read;
+  })
 
   const svgSpan = document.createElement('span');
   svgSpan.innerHTML = "<svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\"\><path fill=\"currentColor\" d=\"M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z\" /></svg>"
+  svgSpan.addEventListener('click', removeBook)
 
   controls.appendChild(readBtn);
   controls.appendChild(svgSpan);
@@ -88,8 +93,13 @@ function addBookToLibrary() {
   myLibrary.push(new Book(title, author, numberOfPages, read));
 }
 
+function removeBook(event) {
+  myLibrary.splice(event.target.dataset.index, 1);
+}
+
+myLibrary.push(testBook1, testBook2, testBook3);
+displayBooks();
+
 function displayBooks() {
-  for (const book of myLibrary) {
-    console.log(book);
-  }
+  myLibrary.forEach((book, index) => book.addToDOM(index));
 }
