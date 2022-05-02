@@ -95,6 +95,7 @@ function addBookToLibrary() {
 
 function removeBook(event) {
   myLibrary.splice(event.target.dataset.index, 1);
+  reloadLibrary();
 }
 
 myLibrary.push(testBook1, testBook2, testBook3);
@@ -102,4 +103,9 @@ displayBooks();
 
 function displayBooks() {
   myLibrary.forEach((book, index) => book.addToDOM(index));
+}
+
+function reloadLibrary () {
+  document.querySelector('.card-container').textContent = "";
+  displayBooks();
 }
