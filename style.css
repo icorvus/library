@@ -81,6 +81,11 @@ h1.header {
   margin-right: 15px;
 }
 
+.card .controls {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
 .controls svg {
   cursor: pointer;
   transition: 50ms;

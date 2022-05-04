@@ -5,6 +5,7 @@ const modal = document.getElementById('modal');
 const addBtn = document.getElementById('add-btn');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const modalReadBtn = document.getElementById('modal-read');
+const saveBtn = document.getElementById('save-btn');
 
 function toggleModal() {
   modalContainer.classList.toggle('hide');
@@ -14,7 +15,6 @@ function toggleReadClass(event) {
   event.target.classList.toggle('read');
 }
 
-
 addBtn.addEventListener('click', toggleModal);
 modalContainer.addEventListener('click', toggleModal);
 closeModalBtn.addEventListener('click', toggleModal);
@@ -22,6 +22,7 @@ modal.addEventListener('click', (event) => {
   event.stopPropagation();
 })
 modalReadBtn.addEventListener('click', toggleReadClass);
+saveBtn.addEventListener('click', addBookToLibrary);
 
 
 
@@ -89,10 +90,24 @@ Book.prototype.addToDOM = function(bookIndex) {
 };
 
 function addBookToLibrary() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const numberOfPages = document.getElementById('pages').value;
+  const readBtn = document.getElementById('modal-read');
+  let readStatus = false;
+  if (readBtn.classList.contains('read')) readStatus = true;
+  toggleModal();
+  document.getElementById("modal-form").reset();
+  myLibrary.push(new Book(title, author, numberOfPages, readStatus));
+  reloadLibrary();
+}
+
+function addBookToLibrsary() {
   const title = prompt("Title: ");
   const author = prompt("Author: ");
   const numberOfPages = prompt("Number of Pages: ");
   const read = prompt("Have you read it yet: ");
+
   myLibrary.push(new Book(title, author, numberOfPages, read));
 }
 
