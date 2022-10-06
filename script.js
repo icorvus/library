@@ -24,61 +24,62 @@ function toggleReadClass(event) {
   event.target.classList.toggle('read');
 }
 
-function Book(title, author, numberOfPages, read) {
-  this.title = title;
-  this.author = author;
-  this.numberOfPages = numberOfPages;
-  this.read = read;
+class Book {
+  constructor(title, author, numberOfPages, read) {
+    this.title = title;
+    this.author = author;
+    this.numberOfPages = numberOfPages;
+    this.read = read;
+  }
+  addToDOM(bookIndex) {
+    const cardContainer = document.querySelector('.card-container');
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.dataset.index = bookIndex;
+  
+    const title = document.createElement('h2');
+    title.classList.add('title');
+    title.textContent = this.title;
+  
+    const author = document.createElement('div');
+    author.classList.add('author');
+    author.textContent = `by ${this.author}`;
+  
+    const pages = document.createElement('div');
+    pages.classList.add('pages');
+    pages.textContent = `${this.numberOfPages} pages`;
+  
+    const controls = document.createElement('div');
+    controls.classList.add('controls');
+  
+    const readBtn = document.createElement('button');
+    readBtn.classList.add('btn', 'read-btn');
+    readBtn.textContent = 'Read';
+    if (this.read) readBtn.classList.add('read');
+    readBtn.addEventListener('click', toggleReadClass);
+    readBtn.addEventListener('click', () => {
+      this.read = !this.read;
+    });
+  
+    const svgSpan = document.createElement('span');
+    svgSpan.innerHTML = "<svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\"\><path fill=\"currentColor\" d=\"M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z\" /></svg>";
+    svgSpan.addEventListener('click', () => {
+      myLibrary.splice(bookIndex, 1);
+      reloadLibrary();
+    });
+  
+    controls.appendChild(readBtn);
+    controls.appendChild(svgSpan);
+  
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+    card.appendChild(controls);
+  
+    cardContainer.appendChild(card);
+  }
 }
-
-Book.prototype.addToDOM = function(bookIndex) {
-  const cardContainer = document.querySelector('.card-container');
-
-  const card = document.createElement('div');
-  card.classList.add('card');
-  card.dataset.index = bookIndex;
-
-  const title = document.createElement('h2');
-  title.classList.add('title');
-  title.textContent = this.title;
-
-  const author = document.createElement('div');
-  author.classList.add('author');
-  author.textContent = `by ${this.author}`;
-
-  const pages = document.createElement('div');
-  pages.classList.add('pages');
-  pages.textContent = `${this.numberOfPages} pages`;
-
-  const controls = document.createElement('div');
-  controls.classList.add('controls');
-
-  const readBtn = document.createElement('button');
-  readBtn.classList.add('btn', 'read-btn');
-  readBtn.textContent = 'Read';
-  if (this.read) readBtn.classList.add('read');
-  readBtn.addEventListener('click', toggleReadClass);
-  readBtn.addEventListener('click', () => {
-    this.read = !this.read;
-  });
-
-  const svgSpan = document.createElement('span');
-  svgSpan.innerHTML = "<svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\"\><path fill=\"currentColor\" d=\"M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z\" /></svg>";
-  svgSpan.addEventListener('click', () => {
-    myLibrary.splice(bookIndex, 1);
-    reloadLibrary();
-  });
-
-  controls.appendChild(readBtn);
-  controls.appendChild(svgSpan);
-
-  card.appendChild(title);
-  card.appendChild(author);
-  card.appendChild(pages);
-  card.appendChild(controls);
-
-  cardContainer.appendChild(card);
-};
 
 function addBookToLibrary() {
   const title = document.getElementById('title').value;
